@@ -5,7 +5,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgb(37, 37, 37);
+    background-color: rgb(24, 31, 38);
     overflow-x: hidden;
     padding-top: 20px;
   }
@@ -13,21 +13,39 @@
   .sidenav a {
     padding: 10px 10px 6px 20px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 19px;
     color: #fff;
     display: block;
   }
   
   .sidenav a:hover {
-    color: #f1f1f1;
+    color: #aaaaaa;
   }
   
   .main {
     margin-left: 200px; /* Same as the width of the sidenav */
-    padding: 0px 10px;
   }
-  
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+
+  .topbara{
+      float:left;
+      display: block;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 15px;
+      color: #fff;
+      text-align: center;
   }
+
+  .topbar a:hover {
+    color: #aaaaaa;
+  }
+
+#content-desktop {display: block;}
+#content-topbar {display: none;}
+
+@media screen and (max-width: 768px) {
+
+#content-desktop {display: none;}
+#content-mobile {display: block; margin-left:0px; padding-top: 20px;}
+#content-topbar {display: block;}
+}
