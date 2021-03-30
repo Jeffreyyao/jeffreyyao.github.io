@@ -29,9 +29,10 @@
   .topbara{
       float:left;
       display: block;
-      padding: 12px;
+      padding: 14px;
+      overflow: hidden;
       text-decoration: none;
-      font-size: 5px;
+      font-size: 14px;
       color: #fff;
       text-align: center;
   }
