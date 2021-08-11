@@ -1,3 +1,7 @@
+body{
+  background-image: url(images/background.svg);
+}
+
 .sidenav {
     height: 100%;
     width: 200px;
@@ -10,36 +14,36 @@
     padding-top: 20px;
   }
   
-  .sidenav a {
-    padding: 10px 10px 6px 20px;
-    text-decoration: none;
-    font-size: 19px;
-    color: #fff;
+.sidenav a {
+  padding: 10px 10px 6px 20px;
+  text-decoration: none;
+  font-size: 19px;
+  color: #fff;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #aaaaaa;
+}
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+}
+
+.topbara{
+    float:left;
     display: block;
-  }
-  
-  .sidenav a:hover {
-    color: #aaaaaa;
-  }
-  
-  .main {
-    margin-left: 200px; /* Same as the width of the sidenav */
-  }
+    padding: 14px;
+    overflow: hidden;
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+}
 
-  .topbara{
-      float:left;
-      display: block;
-      padding: 14px;
-      overflow: hidden;
-      text-decoration: none;
-      font-size: 14px;
-      color: #fff;
-      text-align: center;
-  }
-
-  .topbar a:hover {
-    color: #aaaaaa;
-  }
+.topbar a:hover {
+  color: #aaaaaa;
+}
 
 #content-desktop {display: block;}
 #content-topbar {display: none;}
