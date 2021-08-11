@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="google-site-verification" content="QOrZSApAjEShC-kEKBSIipvU-vss5Rmn5UymAOPFLEA" />
         <title>Home Page</title>
         <link rel="stylesheet" href="dark.css">
         <link rel="stylesheet" href="custom.css">
@@ -29,21 +28,24 @@
             <a href=FMC_WebGL/index.html>FMC</a>
         </div>
         <div class="main" id="content-mobile">
-            <h1>JJ's Blog</h1>
-            <h2>Me</h2>
+            <a href="https://github.com/Jeffreyyao/Misc/tree/main/ML"><h1>CNN Minesweeper Solver</h1></a>
             <p>
-                Born in Hong Kong Queen Mary Hospital, Sep-16-2000.
-                Son of Ning, House Yao. Given 姚知行 as name.
+                Implemented with PyTorch, the convolutional neural net takes a 5x5 map of mines with the center opened
+                and outputs a 5x5 probability map representing the probability of every block being a mine.
+                The program then opens blocks with a non-mine probability greater than 90%.
+            </p>
+            <center><img src="images/minesweeper_solver.gif" alt="16x16 map with 40 mines" width="400"></center>
+            <p>
+                This solver is able to achieve high accuracy. Solving a 16x16 map with 40 mines, 
+                which performs well on near-center locations, however, often fails to completely finish the game at edges.
             </p>
             <p>
-                Grew up in HK & Guangzhou. Fluent in Cantonese, Mandarin and English.
+                The entire environment is implemented in OpenAI gym style, with specified dicrete action-observation
+                spaces, and reward given for each action, which makes attempts for other ML/RL algorithms to solve
+                this problem easier.
             </p>
-            <p>
-                Faught in the war of Sars in 2003 and the war of Coronavirus in 2020.
-            </p>
-            <p>Loved to play my Martin Guitar called violin.</p>
-            <center><img src="images/me.JPG" width="400" height="300"></center>
-            <br>
+
+            <a href="https://github.com/Jeffreyyao/Misc/tree/main/ML"><h1>Mnist Handwritten Digit Recognition</h1></a>
         </div>
     </body>
 </html>
