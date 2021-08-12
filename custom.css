@@ -1,6 +1,7 @@
 body{
   background-image: url(images/background.svg);
   background-size: 300%;
+  background-repeat: repeat;
 }
 
 .sidenav {
