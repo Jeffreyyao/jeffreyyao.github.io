@@ -5,7 +5,7 @@ sidenav.innerHTML = `
         <a class="topbara" href="index.html">Home</a>
         <a class="topbara" href="projects.html">Projects</a>
         <a class="topbara" href=family.html>Family</a>
-        <a class="topbara" href=logs.html>Logs</a>
+        <a class="topbara" href=notes.html>Notes</a>
         <a class="topbara" href=education.html>Education</a>
         <a class="topbara" href=contactme.html>Contact Me</a>
     </div>
@@ -13,7 +13,7 @@ sidenav.innerHTML = `
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
         <a href=family.html>Family</a>
-        <a href=logs.html>Logs</a>
+        <a href=notes.html>Notes</a>
         <a href=education.html>Education</a>
         <a href=contactme.html>Contact Me</a>
     </div>
