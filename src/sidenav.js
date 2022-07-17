@@ -1,7 +1,7 @@
 const sidenav = document.createElement('template');
 
 sidenav.innerHTML = `
-    <div id="content-topbar" style="overflow-x:scroll;overflow-y:hidden;position:fixed;background-color: rgb(24,31,38);height:50px;width: 100%;left:0;top:0;">
+    <div id="content-topbar" style="overflow:auto;position:fixed;background-color: rgb(24,31,38);width: 100%;left:0;top:0;">
         <a class="topbara" href="index.html">Home</a>
         <a class="topbara" href="projects.html">Projects</a>
         <a class="topbara" href=facts.html>Facts</a>
