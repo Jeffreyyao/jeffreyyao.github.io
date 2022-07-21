@@ -1,5 +1,4 @@
 const sidenav = document.createElement('template');
-
 sidenav.innerHTML = `
     <div id="content-topbar" style="overflow:auto;position:fixed;background-color: rgb(24,31,38);width: 100%;left:0;top:0;">
         <a class="topbara" href="index.html">Home</a>
