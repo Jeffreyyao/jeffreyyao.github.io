@@ -1,0 +1,115 @@
+<!-- Licensed under a BSD license. See license.html for license -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, 
+user-scalable=yes">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r126/three.min.js" integrity="sha512-n8IpKWzDnBOcBhRlHirMZOUvEq2bLRMuJGjuVqbzUJwtTsgwOgK5aS0c1JA647XWYfqvXve8k3PtZdzpipFjgg==" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
+        <title>兔球球阿巴搭</title>
+    </head>
+    <body style="margin: 0;">
+        <canvas id="c"></canvas>
+    </body>
+    <script type="module">
+    import { OrbitControls } from './OrbitControls.js';
+
+    const canvas = document.querySelector('#c');
+    const renderer = new THREE.WebGLRenderer({canvas, alpha:true});
+    renderer.setSize( window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio)
+    renderer.setClearColor( 0xffffff, 0);
+
+    const fov = 75;
+    const aspect = 2;  // the canvas default
+    const near = 0.1;
+    const far = 100;
+    const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+    camera.position.x = 8.32;
+    camera.position.y = 6.67;
+    camera.position.z = 8;
+    camera.aspect = canvas.width / canvas.height;
+    camera.updateProjectionMatrix();
+
+    const scene = new THREE.Scene();
+
+    {
+        const hemisphereLight = new THREE.HemisphereLight(0xaaaaaa, 0x000000, .9);
+
+        // an ambient light modifies the global color of a scene and makes the shadows softer
+        const ambientLight = new THREE.AmbientLight(0xdc8874, .5);
+        scene.add(ambientLight);
+
+        // A directional light shines from a specific direction. 
+        // It acts like the sun, that means that all the rays produced are parallel. 
+        const shadowLight = new THREE.DirectionalLight(0xffffff, .9);
+
+        // Set the direction of the light  
+        shadowLight.position.set(150, 350, 350);
+
+        // Allow shadow casting 
+        shadowLight.castShadow = true;
+
+        // define the visible area of the projected shadow
+        shadowLight.shadow.camera.left = -400;
+        shadowLight.shadow.camera.right = 400;
+        shadowLight.shadow.camera.top = 400;
+        shadowLight.shadow.camera.bottom = -400;
+        shadowLight.shadow.camera.near = 1;
+        shadowLight.shadow.camera.far = 1000;
+
+        // define the resolution of the shadow; the higher the better, 
+        // but also the more expensive and less performant
+        shadowLight.shadow.mapSize.width = 2048;
+        shadowLight.shadow.mapSize.height = 2048;
+
+        // to activate the lights, just add them to the scene
+        scene.add(hemisphereLight);
+        scene.add(shadowLight);
+    }
+
+    const boxWidth = 2;
+    const boxHeight = 2;
+    const boxDepth = 2;
+    const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+
+    const material = new THREE.MeshPhongMaterial({color: 0xFFC0CB});
+
+    const cube = new THREE.Mesh(geometry, material);
+    // scene.add(cube)
+
+    const loader = new THREE.GLTFLoader();
+    loader.load('glider.gltf',
+        (gltf)=>{scene.add(gltf.scene);},
+        (xhr) => {console.log((xhr.loaded / xhr.total) * 100 + '% loaded');},
+        (error) => {console.log(error);}
+    );
+
+    const controls = new OrbitControls( camera, renderer.domElement );
+    controls.enableZoom = false;
+    controls.enablePan = false;
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.2;
+
+    function render() {
+        requestAnimationFrame(render);
+        controls.update()
+        renderer.render(scene, camera);
+    }
+
+    window.addEventListener('resize', onWindowResize, false)
+    function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight
+        camera.updateProjectionMatrix()
+        renderer.setSize(window.innerWidth, window.innerHeight)
+        render()
+        console.log(camera.position)
+    }
+
+    render()
+    </script>
+</html>
+
+
+

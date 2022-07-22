@@ -7,6 +7,11 @@
         <link rel="stylesheet" href="src/dark.css">
         <link rel="stylesheet" href="src/custom.css">
         <link rel="icon" href="images/chui.ico">
+        <script>
+            function resizeIframe(obj) {
+                obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+            }
+        </script>
     </head>
     <body>
         <script src="src/sidenav.js" type="text/javascript"></script>
@@ -29,16 +34,17 @@
                 The simulation environment is implemented with PyGame in OpenAI Gym style. With the specified dicrete action and observation spaces as well as reward for each action, forming a conventional markov decision process. Other generic ML/RL algorithms may be applied to solve this game. <a href="https://github.com/Jeffreyyao/gym-minesweeper">(Source Code)</a>
             </p>
 
+            <h2>Glider</h2>
+            A glider whose design conforms to aerodynamic principles for ASEN 2004's class project.
+            This design has been iterated to maximize flight range and endurance.
+            <center><iframe width="80%" height="400" src="src/glider-three-js/index.html" frameborder="0" scrolling="no" onload="resizeIframe(this)"></iframe></center>
+            <!-- <center><img src="images/glider.png" alt="mnist handwritten digit recognition"></center> -->
+
             <a href="https://github.com/Jeffreyyao/Misc/tree/main/ML"><h2>Mnist Handwritten Digit Recognition</h2></a>
             <p>
                 Built with a 6 layer CNN, able to recognize 28x28 handwritten digits with high accuracy.
             </p>
             <center><img src="images/mnist.png" alt="mnist handwritten digit recognition" width="400"></center>
-
-            <h2>Glider</h2>
-            A glider whose design conforms to aerodynamic principles for ASEN 2004's class project.
-            This design has been iterated to maximize flight range and endurance.
-            <center><img src="images/glider.png" alt="mnist handwritten digit recognition"></center>
         </div>
     </body>
 </html>
