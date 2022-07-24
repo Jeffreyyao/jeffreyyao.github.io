@@ -10,5 +10,4 @@ footer.innerHTML = `
         </p?
     </footer>
 `
-
 document.getElementsByClassName("main")[0].appendChild(footer.content);
